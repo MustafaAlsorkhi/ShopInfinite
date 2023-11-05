@@ -4,12 +4,8 @@ import axios from 'axios'; // Import Axios
 import LogValidate from './LogValidate';
 import { Link, useNavigate } from "react-router-dom";
 
-
-
-
 function Login() {
-
-   
+  const navigate = useNavigate();
     const [values,setValues]=useState({ email:'', password:''});
     const [error,setError]=useState({});
    
@@ -28,10 +24,12 @@ function Login() {
    
       try {
         // Make a POST request to your API endpoint
-        const response = await axios.post('http://localhost:3001/login', values);
+        const response = await axios.post('http://localhost:5000/login', values);
 
         // Check the response status code and handle it accordingly
       
+        navigate('/');
+
             // in user_id  i in id is diffrent
       const user_Id = response.data.id;
       console.log("id ",user_Id);

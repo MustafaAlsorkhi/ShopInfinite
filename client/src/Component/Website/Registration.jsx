@@ -1,196 +1,20 @@
-// import React, { useState } from "react";
-// import RegValidate from "./RegValidate";
-// import axios from 'axios';
-// // import Registration from'../CSS/Registration.css'
-
-// const Registration = () => {
-
-
-//   const [values,setValues]=useState({ firstname:'' , lastname:'' , email:'', password:'',city:'', address:'',phoneNumber:''});
-//   const [error,setError]=useState({});
-
-// // Handle the change in inputs
-// const handleInputs=(e)=>{
-//     setValues({...values, [e.target.name]: e.target.value}) ;    
-    
-// }
-
-// // Handle submit for the form 
-// const handleSubmit = async (e) => {
-//     e.preventDefault();
-  
-//     const errors = RegValidate(values);
-//     setError(errors);
-
-//     // Check if there are any validation errors before sending the data
-//   if (Object.keys(errors).length === 0) {
-//     try {
-//       // Make a POST request to your API endpoint
-//       console.log('Submitting the form...');
-//       const response = await axios.post('http://localhost:3001/users', values);
-      
-//       // Check the response status code and handle it accordingly
-//       if (response.status === 200) {
-//         // Registration was successful
-//         console.log('Registration successful:', response.data);
-//       } else {
-//         // Handle other status codes or error scenarios
-//         console.error('Registration failed:', response.data);
-//       }
-//     } catch (error) {
-//       // Handle network or other errors
-//       console.error('Registration error:', error);
-//     }
-//   }
-// }
-//   return (
-
-   
-// <div className="mx-80 my-20  border-black border-2 p-10 bg-orange-500" >
-//   <div>
-//   <h1 className="text-4xl font-bold text-center">SHOP INFINITE</h1>
-//   </div>
-//   <br/>
-//   <hr/>
-//   <br/>
-//   <h1 className="text-1xl font-bold text-start">please fill the form for creat account in our website</h1>
-
-//   <br/>
-//   <hr/>
-//   <br/>
-//       <form onSubmit={handleSubmit} >
-//         <div className="flex flex-col">
-//           <label className="mb-2 text-m font-medium text-black">First Name</label>
-//           <input
-//             type="text"
-//             name='firstname'
-//             placeholder="Enter your first name"
-//             // value={firstName}
-//             onChange={handleInputs}
-//             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-//           />
-//         </div>
-
-//         <div className="flex flex-col mt-4">
-//           <label  className="mb-2 text-m font-medium text-black">Last Name</label>
-//           <input
-//             type="text"
-//             name="lastname"
-//             placeholder="Enter your last name"
-//             // value={lastName}
-//             onChange={handleInputs}
-//             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-//           />
-//         </div>
-
-//         <div className="flex flex-col mt-4">
-//           <label  className="mb-2 text-m font-medium text-black">Phone Number</label>
-//           <input
-//             type="text"
-//             name="phoneNumber"
-//             placeholder="Enter your phone number"
-//             // value={phoneNumber}
-//             onChange={handleInputs}
-//             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-//           />
-//         </div>
-
-        // <div className="flex flex-col mt-4">
-        //   <label  className="mb-2 text-m font-medium text-black">City</label>
-        //   <select
-        //     name="city"
-        //     // value={city}
-        //     onChange={handleInputs}
-        //     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-        //   >
-        //     {/* TODO: Populate the city options dynamically */}
-        //     <option value="">Select a city</option>
-        //     <option value="Amman">Amman</option>
-        //     <option value="Irbid">Irbid</option>
-        //     <option value="Zarqa">Zarqa</option>
-        //     <option value="Ajloun">Ajloun</option>
-        //     <option value="Ma'an">Ma'an</option>
-        //     <option value="Madaba">Madaba</option>
-        //     <option value="Aqaba">Aqaba</option>
-        //     <option value="As-Salt">As-Salt</option>
-        //     <option value="Jerash">Jerash</option>
-        //     <option value="Al-Mafraq">Al-Mafraq</option>
-        //     <option value="Kerak">Kerak</option>
-        //     <option value="At-Tafilah">At-Tafilah</option>
-        //     {/* ... */}
-        //   </select>
-        // </div>
-//         <div className="flex flex-col mt-4">
-//           <label  className="mb-2 text-m font-medium text-black">Email</label>
-//           <input
-//             type="text"
-//             name="email"
-//             placeholder="Enter your Email"
-//             // value={lastName}
-//             onChange={handleInputs}
-//             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-//           />  {error.email && <p style={{color:"black"}}>{error.email}</p>}
-          
-//         </div>
-//         <div className="flex flex-col mt-4">
-//           <label  className="mb-2 text-m font-medium text-black">Address</label>
-//           <input
-//             type="text"
-//             name="address"
-//             placeholder="Enter your Address"
-//             // value={lastName}
-//             onChange={handleInputs}
-//             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-//           />
-          
-//         </div>
-//         <div className="flex flex-col mt-4">
-//           <label  className="mb-2 text-m font-medium text-black">Password</label>
-//           <input
-//             type="password"
-//             name="password"
-//             placeholder="Enter your password"
-//             // value={password}
-//             onChange={handleInputs}
-//             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-//           />  {error.password && <p style={{color:"black"}} >{error.password}</p>}
-//         </div>
-
-//         <button type="submit" className="mt-4 px-4 py-2 hover:bg-orange-400 text-white font-semibold rounded-md bg-black">
-//           Register
-//         </button>
-//       </form>
-//       </div>
-//   );
-// };
-
-// export default Registration;
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState } from "react";
 import RegValidate from "./RegValidate";
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
-const Registration = () => {
+
+const Registration = ( ) => {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
-    firstname: '',
+    fistname: '',
     lastname: '',
     email: '',
     password:'',
     city: '',
     address: '',
-    phoneNumber: '',
+    phonenumber: '',
+    role_id: '2'
   });
   const [error, setError] = useState({});
 
@@ -212,9 +36,10 @@ const Registration = () => {
       try {
         // Make a POST request to your API endpoint
         console.log("axios");
-        const response = await axios.post('http://localhost:3001/users',values);
+        const response = await axios.post('http://localhost:5000/signup',values);
         console.log('Submitting the form...');
         // Check the response status code and handle it accordingly
+        navigate('/login');
       
           // Registration was successful
           console.log('Registration successful:', response.data);
@@ -223,7 +48,6 @@ const Registration = () => {
         // Handle network or other errors
         console.error('Registration error:', error);
       }
-    
   }
 
   return (
@@ -239,7 +63,7 @@ const Registration = () => {
             <label className="mb-2 text-sm font-medium text-black">First Name</label>
             <input
               type="text"
-              name="firstname"
+              name="fistname"
               placeholder="Enter your first name"
               onChange={handleInputs}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
@@ -261,7 +85,7 @@ const Registration = () => {
             <label className="mb-2 text-sm font-medium text-black">Phone Number</label>
             <input
               type="text"
-              name="phoneNumber"
+              name="phonenumber"
               placeholder="Enter your phone number"
               onChange={handleInputs}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
