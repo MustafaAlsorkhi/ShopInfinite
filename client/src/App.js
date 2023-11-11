@@ -21,6 +21,8 @@ import Navbar2 from './Component/Website/Navbar2';
 import Profile from './Component/Website/Profile';
 import Product from './Component/Website/ProductPages';
 import Details from './Component/Website/Details';
+import Productt from './Component/Website/NewSearch';
+
 
 
 
@@ -34,6 +36,24 @@ function App() {
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
+
+
+  // const addToCart = (product) => {
+  //   // You can directly send the product data to the server without using useEffect here
+  //   async function sendProductToServer() {
+  //     try {
+  //       const response = await axios.post('http://localhost:5000/getAllProduct', product);
+  //       setProducts(response.data);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       alert('Failed to save data to the server:', error);
+  //     }
+  //   }
+  //   sendProductToServer();
+  
+  //   // Now, you can call the onAddToCart function to add the product to the cart
+  //   onAddToCart(product);
+  // };
 
  
 
@@ -60,7 +80,8 @@ function App() {
           <Route path='/contact' element={<ContactUs/>}/>
           <Route path='/about' element={<AboutUs/>}/>
           <Route path='/faq' element={<FAQ/>}/>
-          <Route path='/productDetails' element={<Product/>}/>
+          <Route path='/categories' element={<Product/>}/>
+          <Route path='/search' element={<Productt/>}/>
           <Route path="/Details/:Params" element={<Details />} />
        
           
