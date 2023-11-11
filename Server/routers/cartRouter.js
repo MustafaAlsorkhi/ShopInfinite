@@ -19,4 +19,10 @@ router.delete(
   cartController.deleteProduct
 );
 
+router.get(
+  "/getCarts/:user_id",
+//   authorizationMiddleware.authorize,
+  cartController.getCarts
+);
+
 module.exports = router;
